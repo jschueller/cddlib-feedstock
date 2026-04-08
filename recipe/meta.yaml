@@ -1,6 +1,6 @@
 {% set name = "cddlib" %}
-{% set version = "0.94m" %}
-{% set sha256 = "70dffdb3369b8704dc75428a1b3c42ab9047b81ce039f12f427e2eb2b1b0dee2" %}
+{% set version = "0.94n" %}
+{% set sha256 = "b87ee07ba2c1d0ab92a3e4eccacdf568f981a095a392e3b9efd7e7e4a9e125b1" %}
 
 package:
   name: {{ name }}
@@ -20,6 +20,7 @@ requirements:
   build:
     - libtool  # [unix]
     - {{ compiler('c') }}
+    - {{ stdlib('c') }}
     - libtool
     - make
   host:
@@ -37,7 +38,7 @@ test:
 
 about:
   home: https://github.com/cddlib/cddlib
-  license: GPLv2
+  license: GPL-2.0-only
   license_file: COPYING
   summary: An efficient implementation of the Double Description Method
   description: |
