@@ -5,7 +5,7 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/cddlib-feedstoc
 
 Home: https://github.com/cddlib/cddlib
 
-Package license: GPLv2
+Package license: GPL-2.0-only
 
 Summary: An efficient implementation of the Double Description Method
 
