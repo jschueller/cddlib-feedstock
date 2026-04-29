@@ -1,0 +1,55 @@
+context:
+  version: "0.94n"
+
+package:
+  name: cddlib
+  version: 1!${{ version }}
+
+source:
+  url: https://github.com/cddlib/cddlib/releases/download/${{ version }}/cddlib-${{ version }}.tar.gz
+  sha256: b87ee07ba2c1d0ab92a3e4eccacdf568f981a095a392e3b9efd7e7e4a9e125b1
+
+build:
+  number: 1
+  skip:
+    - win
+
+requirements:
+  build:
+    - ${{ compiler('c') }}
+    - ${{ stdlib('c') }}
+    - if: unix
+      then:
+        - libtool
+        - make
+  host:
+    - gmp
+  run:
+    - gmp
+  run_exports:
+    - cddlib >=1!${{ version }}
+
+tests:
+  - package_contents:
+      include:
+        - cddlib/cdd.h
+      lib:
+        - cdd
+        - cddgmp
+
+about:
+  homepage: https://github.com/cddlib/cddlib
+  license: GPL-2.0-only
+  license_file: COPYING
+  summary: An efficient implementation of the Double Description Method
+  description: |
+    The C-library cddlib is a C implementation of the Double Description Method
+    of Motzkin et al. for generating all vertices (i.e. extreme points) and
+    extreme rays of a general convex polyhedron in real space given by a system
+    of linear inequalities.
+  documentation: ftp://ftp.math.ethz.ch/users/fukudak/cdd/cddlibman/cddlibman.html
+
+extra:
+  recipe-maintainers:
+    - isuruf
+    - saraedum
