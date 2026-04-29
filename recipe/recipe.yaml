@@ -8,11 +8,11 @@ package:
 source:
   url: https://github.com/cddlib/cddlib/releases/download/${{ version }}/cddlib-${{ version }}.tar.gz
   sha256: b87ee07ba2c1d0ab92a3e4eccacdf568f981a095a392e3b9efd7e7e4a9e125b1
+  patches:
+    - msvc.patch
 
 build:
   number: 1
-  skip:
-    - win
 
 requirements:
   build:
@@ -22,6 +22,9 @@ requirements:
       then:
         - libtool
         - make
+      else:
+        - cmake
+        - ninja
   host:
     - gmp
   run:
