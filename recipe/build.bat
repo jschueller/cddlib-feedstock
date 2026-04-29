@@ -10,3 +10,5 @@ if errorlevel 1 exit 1
 cmake --build build --target install --config Release --parallel %CPU_COUNT%
 if errorlevel 1 exit 1
 
+ctest --test-dir build --output-on-failure -j%CPU_COUNT%
+if errorlevel 1 exit 1
