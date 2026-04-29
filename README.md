@@ -16,7 +16,6 @@ of Motzkin et al. for generating all vertices (i.e. extreme points) and
 extreme rays of a general convex polyhedron in real space given by a system
 of linear inequalities.
 
-
 Current build status
 ====================
 
